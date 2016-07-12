@@ -54,12 +54,9 @@ public class MongoConfiguration extends AbstractMongoConfiguration {
         List<ServerAddress> addresses = Stream.of(host.split(HOSTS_SEPARATOR))
                 .map(addr -> {
                     String[] hostAndport = addr.split(HOSTS__PORT_SEPARATOR);
-                    try {
+
                         return new ServerAddress(hostAndport[0], Integer.valueOf(hostAndport[1]));
-                    } catch (UnknownHostException e) {
-                        e.printStackTrace(); //TODO log this exception
-                        return null;
-                    }
+
                 }).collect(Collectors.toList());
 
         MongoCredential mongoCredential = MongoCredential.createMongoCRCredential(dbuser, dbName, dbPassword.toCharArray());
