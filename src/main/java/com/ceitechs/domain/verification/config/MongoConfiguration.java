@@ -54,9 +54,7 @@ public class MongoConfiguration extends AbstractMongoConfiguration {
         List<ServerAddress> addresses = Stream.of(host.split(HOSTS_SEPARATOR))
                 .map(addr -> {
                     String[] hostAndport = addr.split(HOSTS__PORT_SEPARATOR);
-
                         return new ServerAddress(hostAndport[0], Integer.valueOf(hostAndport[1]));
-
                 }).collect(Collectors.toList());
 
         MongoCredential mongoCredential = MongoCredential.createScramSha1Credential(dbuser, dbName, dbPassword.toCharArray());
