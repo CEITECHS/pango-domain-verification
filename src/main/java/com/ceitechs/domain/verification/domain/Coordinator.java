@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 
 /**
@@ -22,7 +23,7 @@ import java.time.LocalDate;
 @TypeAlias("coordinators")
 public class Coordinator {
     @Id
-    private long coordinatorId;
+    private BigInteger coordinatorId;
     private String firstName;
     private String lastName;
     private String phoneNumber;

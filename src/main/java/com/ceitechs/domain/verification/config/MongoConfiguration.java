@@ -59,7 +59,7 @@ public class MongoConfiguration extends AbstractMongoConfiguration {
 
                 }).collect(Collectors.toList());
 
-        MongoCredential mongoCredential = MongoCredential.createMongoCRCredential(dbuser, dbName, dbPassword.toCharArray());
+        MongoCredential mongoCredential = MongoCredential.createScramSha1Credential(dbuser, dbName, dbPassword.toCharArray());
         Mongo mongo = new MongoClient(addresses, Arrays.asList(mongoCredential));
         mongo.setWriteConcern(WriteConcern.ACKNOWLEDGED);
         return mongo;

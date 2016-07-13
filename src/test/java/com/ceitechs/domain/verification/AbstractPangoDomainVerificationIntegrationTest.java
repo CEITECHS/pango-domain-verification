@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestPropertySource(properties = {"db.host.name = localhost:27017",
-        "db.password = pangodev" ,"db.user = coordinator",
+        "db.password = pangoPreprodVerifyWriteUsrPass10" ,"db.user =pangoVerifyWriteUser",
         "db.name = pango-verification" })
 @ContextConfiguration(classes = {PangoDomainVerificationServiceConfig.class})
 public class AbstractPangoDomainVerificationIntegrationTest {
