@@ -15,26 +15,21 @@ public class CoordinatorRepoTest extends AbstractPangoDomainVerificationIntegrat
     @Autowired
     CoordinatorRepository coordinatorRepository;
 
-   @Test
-   public void saveTest(){
-       Coordinator coordinator = new Coordinator();
-       coordinator.setFirstName("Changua");
-       coordinator.setLastName("Pango");
-     Coordinator savedC = coordinatorRepository.save(coordinator);
-
-      assertNotNull(savedC.getCoordinatorId());
-
-
-
-
-   }
+    @Test
+    public void saveTest() {
+        Coordinator coordinator = new Coordinator();
+        coordinator.setFirstName("Changua");
+        coordinator.setLastName("Pango");
+        Coordinator savedC = coordinatorRepository.save(coordinator);
+        assertNotNull(savedC.getCoordinatorId());
+    }
 
     @Test
-    public void readTest(){
+    public void readTest() {
         List<Coordinator> ls = coordinatorRepository.findAll();
         assertNotNull(ls);
         assertTrue(!ls.isEmpty());
-        ls.forEach(a -> System.out.println(a.getCoordinatorId() + " - " +a.getFirstName() + " - " + a.getLastName()));
+        ls.forEach(a -> System.out.println(a.getCoordinatorId() + " - " + a.getFirstName() + " - " + a.getLastName()));
     }
 
 }

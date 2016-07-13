@@ -14,7 +14,6 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @Configuration
 @Import({MongoConfiguration.class})
 //@ComponentScan(basePackages = {"com.ceitechs.domain.verification"})
-// @PropertySource(value = { "classpath:application.properties" })
 public class PangoDomainVerificationServiceConfig {
 
     /**
