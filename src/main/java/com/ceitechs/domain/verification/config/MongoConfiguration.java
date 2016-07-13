@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,7 +24,7 @@ import java.util.stream.Stream;
 public class MongoConfiguration extends AbstractMongoConfiguration {
 
     private final static String HOSTS_SEPARATOR = ",";
-    private final static String HOSTS__PORT_SEPARATOR = ":";
+    private final static String HOST_PORT_SEPARATOR = ":";
 
 
     @Value("${db.password}")
@@ -53,7 +52,7 @@ public class MongoConfiguration extends AbstractMongoConfiguration {
     public Mongo mongo() throws Exception {
         List<ServerAddress> addresses = Stream.of(host.split(HOSTS_SEPARATOR))
                 .map(addr -> {
-                    String[] hostAndport = addr.split(HOSTS__PORT_SEPARATOR);
+                    String[] hostAndport = addr.split(HOST_PORT_SEPARATOR);
                         return new ServerAddress(hostAndport[0], Integer.valueOf(hostAndport[1]));
                 }).collect(Collectors.toList());
 
